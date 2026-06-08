@@ -7,13 +7,17 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: '#050505',
-        foreground: '#ffffff',
-        accent: '#3b82f6',
-      },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['var(--font-inter)', 'Inter', 'sans-serif'],
+        serif: ['var(--font-playfair)', 'Playfair Display', 'serif'],
+      },
+      colors: {
+        background: '#020202',
+        foreground: '#f5f5f5',
+      },
+      letterSpacing: {
+        tightest: '-0.04em',
+        widest: '0.3em',
       },
     },
   },
