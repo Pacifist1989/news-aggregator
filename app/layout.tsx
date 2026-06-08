@@ -1,12 +1,20 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Playfair_Display } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
+})
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+})
 
 export const metadata: Metadata = {
-  title: 'Chronicle | Premium News Aggregator',
-  description: 'A sophisticated news reading experience.',
+  title: 'Chronicle | The Architecture of Information',
+  description: 'A cinematic news experience for the frontier economy.',
 }
 
 export default function RootLayout({
@@ -15,8 +23,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.className} bg-black text-gray-100 antialiased`}>{children}</body>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} dark`}>
+      <body className="bg-[#020202] text-[#f5f5f5] font-sans antialiased selection:bg-white selection:text-black">
+        {children}
+      </body>
     </html>
   )
 }
