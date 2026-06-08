@@ -1,123 +1,186 @@
 import React from 'react';
-import { Search, Bell, Menu, TrendingUp, Clock, Bookmark, Globe, Cpu, BarChart3, Radio } from 'lucide-react';
+import { Search, Menu, Globe, BarChart3, Radio, ArrowUpRight, Zap, Shield, Target } from 'lucide-react';
 
 export default function Home() {
   const briefings = [
-    { category: 'AI & ETHICS', title: 'The Alignment Problem: New Frameworks for AGI Governance', time: '14m ago' },
-    { category: 'GEOPOLITICS', title: 'Sovereign Wealth Flows Shift Toward Arctic Infrastructure', time: '38m ago' },
-    { category: 'BIO-TECH', title: 'Neuralink Competitor Claims Breakthrough in Non-Invasive BCI', time: '1h ago' }
+    { category: 'AGENTIC REASONING', title: 'The Silent Rise of Recursive Intelligence Architectures', time: '14m ago', importance: 'Critical' },
+    { category: 'QUANTUM FRONTIER', title: 'Topological Qubit Stability Achieves Millisecond Benchmarks', time: '38m ago', importance: 'High' },
+    { category: 'GEO-ECONOMICS', title: 'The Great Decoupling: Sovereign Wealth Re-routing Through Neutral Digital Corridors', time: '1h ago', importance: 'Standard' }
   ];
 
   const stories = [
-    { category: 'MARKETS', title: 'Institutional Adoption of CBDCs Triggers Liquidity Surge', excerpt: 'Global banking systems begin the transition to automated sovereign settlement layers.', time: '2h ago', readingTime: '6 min' },
-    { category: 'FRONTIER', title: 'Mars Habitat 1: First Sustainable Oxygen Cycles Verified', excerpt: 'Atmospheric processing units on the Red Planet maintain nominal levels for 180 days.', time: '4h ago', readingTime: '8 min' },
-    { category: 'COMPUTING', title: 'Room-Temperature Superconductors: A Critical Peer Review', excerpt: 'Independent labs across four continents report replicable results in standardized tests.', time: '5h ago', readingTime: '12 min' }
+    { 
+      category: 'ON-DEVICE PRIVACY', 
+      title: 'Local Intelligence: The End of the Cloud Era?', 
+      excerpt: 'New neuromorphic hardware allows for trillion-parameter models to run entirely within air-gapped environments, effectively ending the trade-off between power and privacy.', 
+      time: '2h ago', 
+      readingTime: '6 min',
+      imageAlt: 'Neuromorphic chip rendering'
+    },
+    { 
+      category: 'ADVANCED AESTHETICS', 
+      title: 'The Post-Flat Movement: Why Digital Design is Returning to Depth', 
+      excerpt: 'Analysis of how physical light simulation and layered translucency are replacing the minimalist austerity of the 2010s.', 
+      time: '4h ago', 
+      readingTime: '8 min',
+      imageAlt: 'Abstract glass architecture'
+    },
+    { 
+      category: 'SOCIETAL SYNTHESIS', 
+      title: 'Neural Heritage: Digital Preservation of Human Consciousness Patterns', 
+      excerpt: 'Ethical frameworks emerge as the first high-fidelity synaptic maps are archived for posterity under international treaty.', 
+      time: '5h ago', 
+      readingTime: '12 min',
+      imageAlt: 'Neural network visualization'
+    }
   ];
 
   return (
-    <div className="min-h-screen bg-[#020202] text-[#f5f5f5] selection:bg-white selection:text-black font-sans antialiased">
-      {/* HEADER: STUNNING MINIMALIST NAV */}
-      <nav className="sticky top-0 z-50 bg-[#020202]/90 backdrop-blur-xl border-b border-white/[0.03] px-8 py-5">
-        <div className="max-w-[1600px] mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-12">
-            <span className="text-xl font-bold tracking-[0.3em] uppercase transition-opacity hover:opacity-70 cursor-pointer">CHRONICLE</span>
-            <div className="hidden lg:flex items-center gap-8 text-[10px] font-bold tracking-[0.15em] text-white/40 uppercase">
-              <a href="#" className="hover:text-white transition-colors">Intelligence</a>
-              <a href="#" className="hover:text-white transition-colors">Frontier</a>
-              <a href="#" className="hover:text-white transition-colors">Sovereignty</a>
-              <a href="#" className="hover:text-white transition-colors">Synthesis</a>
+    <div className="min-h-screen bg-[#020202]">
+      {/* CINEMATIC NAVIGATION */}
+      <nav className="fixed top-0 w-full z-50 border-b border-white/[0.04] bg-[#020202]/80 backdrop-blur-2xl">
+        <div className="max-w-[1800px] mx-auto px-6 lg:px-12 py-6 flex items-center justify-between">
+          <div className="flex items-center gap-16">
+            <span className="font-serif text-3xl font-bold tracking-tight italic">Chronicle</span>
+            <div className="hidden lg:flex items-center gap-10">
+              {['Intelligence', 'Sovereignty', 'Frontier', 'Synthesis'].map((item) => (
+                <a key={item} href="#" className="text-[10px] font-bold tracking-widest uppercase text-white/40 hover:text-white transition-all">
+                  {item}
+                </a>
+              ))}
             </div>
           </div>
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-red-500/20 bg-red-500/5">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-              <span className="text-[10px] font-black text-red-500 tracking-widest uppercase">Live</span>
+          
+          <div className="flex items-center gap-8">
+            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.02]">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+              <span className="text-[10px] font-bold text-white/60 tracking-widest uppercase">Live Node</span>
             </div>
-            <Search size={18} className="text-white/40 hover:text-white cursor-pointer transition-colors" />
-            <Menu size={18} className="text-white/40 hover:text-white cursor-pointer transition-colors" />
+            <div className="flex items-center gap-6">
+              <Search size={18} className="text-white/40 hover:text-white cursor-pointer transition-colors" />
+              <Menu size={18} className="text-white/40 hover:text-white cursor-pointer transition-colors" />
+            </div>
           </div>
         </div>
       </nav>
 
-      <main className="max-w-[1600px] mx-auto px-8 py-16">
-        {/* ASYMMETRICAL TOP SECTION */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
-          {/* FEATURED STORY */}
-          <div className="lg:col-span-8 group">
-            <div className="relative aspect-[16/9] overflow-hidden rounded-[4px] bg-[#0A0A0A] border border-white/[0.03]">
-              <div className="absolute inset-0 bg-gradient-to-t from-[#020202] via-[#020202]/20 to-transparent z-10" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/5 via-transparent to-transparent group-hover:from-blue-500/10 transition-colors duration-700" />
+      <main className="pt-32 pb-24 max-w-[1800px] mx-auto px-6 lg:px-12">
+        {/* HERO SECTION: MAGAZINE STRUCTURE */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-32">
+          <div className="lg:col-span-8 group relative">
+            <div className="overflow-hidden bg-[#0A0A0A] border border-white/[0.04] aspect-[16/10] relative">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020202] via-transparent to-transparent z-10" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,_rgba(59,130,246,0.05)_0%,_transparent_100%)]" />
+              
               <div className="absolute bottom-12 left-12 right-12 z-20">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-blue-500">Strategic Outlook 2026</span>
-                  <span className="w-1 h-1 rounded-full bg-white/20" />
-                  <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 underline decoration-blue-500/50 underline-offset-4">Deep Analysis</span>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="flex items-center gap-2 px-3 py-1 rounded bg-blue-500/10 border border-blue-500/20">
+                    <Zap size={10} className="text-blue-500" />
+                    <span className="text-[10px] font-black tracking-widest uppercase text-blue-500">Feature Analysis</span>
+                  </div>
+                  <span className="text-[10px] font-bold tracking-widest uppercase text-white/30">June 2026 Edition</span>
                 </div>
-                <h1 className="text-5xl lg:text-7xl font-medium tracking-tighter leading-[0.9] mb-8 group-hover:text-white transition-colors">
-                  Autonomous Wealth <br />& Sovereign Automation.
+                
+                <h1 className="font-serif text-6xl lg:text-8xl font-medium tracking-tight leading-[0.85] mb-10 group-hover:italic transition-all duration-700">
+                  The Architectures <br /> of Digital <br /> Sovereignty.
                 </h1>
-                <p className="max-w-xl text-lg text-white/50 font-light leading-relaxed">
-                  As decentralized protocols merge with sovereign capital, the structure of global influence is being rewritten in code.
-                </p>
+                
+                <div className="flex items-end justify-between">
+                  <p className="max-w-md text-xl text-white/40 font-light leading-relaxed text-balance">
+                    As global networks fragment into localized clusters, the very nature of information ownership is undergoing a fundamental transformation.
+                  </p>
+                  <div className="flex items-center gap-4 group/btn cursor-pointer">
+                    <span className="text-[11px] font-bold tracking-widest uppercase text-white/60 group-hover/btn:text-white transition-colors">Read Manuscript</span>
+                    <div className="w-12 h-12 rounded-full border border-white/[0.1] flex items-center justify-center group-hover/btn:bg-white group-hover/btn:text-black transition-all">
+                      <ArrowUpRight size={20} />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* BRIEFINGS COLUMN */}
-          <div className="lg:col-span-4 flex flex-col justify-between py-2">
-            <div>
-              <div className="flex items-center gap-2 mb-10">
-                <Radio size={14} className="text-white/20" />
-                <h2 className="text-[11px] font-bold tracking-[0.25em] uppercase text-white/40">The Briefing Room</h2>
+          {/* SIDEBAR: ELITE BRIEFINGS */}
+          <div className="lg:col-span-4 border-l border-white/[0.04] pl-16 flex flex-col">
+            <div className="flex items-center justify-between mb-12">
+              <div className="flex items-center gap-3">
+                <Radio size={14} className="text-blue-500" />
+                <h2 className="text-[11px] font-bold tracking-widest uppercase text-white/40">Intel Feed</h2>
               </div>
-              <div className="space-y-10">
-                {briefings.map((b, i) => (
-                  <div key={i} className="group cursor-pointer">
-                    <p className="text-[10px] font-black tracking-[0.15em] text-white/20 uppercase mb-3 group-hover:text-blue-500 transition-colors">{b.category}</p>
-                    <h3 className="text-xl font-medium tracking-tight leading-snug group-hover:text-white/80 transition-colors">{b.title}</h3>
-                    <p className="text-[10px] text-white/30 mt-3 font-bold">{b.time}</p>
-                    {i !== briefings.length - 1 && <div className="h-px bg-white/[0.03] mt-10" />}
-                  </div>
-                ))}
-              </div>
+              <span className="text-[10px] font-bold text-white/20">EST 22:39</span>
             </div>
-            <button className="mt-12 w-full py-4 border border-white/[0.05] text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-black transition-all duration-300">
-              Access All Archives
+
+            <div className="space-y-12 flex-1">
+              {briefings.map((b, i) => (
+                <div key={i} className="group cursor-pointer">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-[9px] font-black tracking-[0.2em] uppercase text-white/20 group-hover:text-blue-500 transition-colors">
+                      {b.category}
+                    </span>
+                    <div className="h-px w-4 bg-white/[0.08]" />
+                    <span className="text-[9px] font-bold text-white/20 uppercase tracking-widest">{b.importance}</span>
+                  </div>
+                  <h3 className="text-2xl font-serif font-medium leading-snug group-hover:text-white/80 transition-colors">
+                    {b.title}
+                  </h3>
+                  <div className="mt-4 flex items-center gap-4">
+                    <span className="text-[10px] font-bold text-white/20">{b.time}</span>
+                    <ArrowUpRight size={12} className="text-white/10 group-hover:text-white transition-colors" />
+                  </div>
+                  {i !== briefings.length - 1 && <div className="h-px bg-white/[0.04] mt-12" />}
+                </div>
+              ))}
+            </div>
+
+            <button className="mt-16 w-full py-5 border border-white/[0.08] text-[10px] font-bold tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all duration-500 glass">
+              Access Full Terminal
             </button>
           </div>
         </div>
 
-        {/* MODULAR GRID SECTION */}
-        <section className="border-t border-white/[0.03] pt-16">
-          <div className="flex items-center justify-between mb-16">
-            <h2 className="text-2xl font-medium tracking-tighter italic">Latest Synthesis</h2>
-            <div className="h-px flex-1 bg-white/[0.03] mx-12 hidden md:block" />
+        {/* DYNAMIC GRID: SYNTHESIS */}
+        <section className="border-t border-white/[0.04] pt-24">
+          <div className="flex items-end justify-between mb-24">
+            <div className="space-y-4">
+              <span className="text-[11px] font-black tracking-widest uppercase text-blue-500">The Synthesis</span>
+              <h2 className="text-5xl font-serif font-medium tracking-tight italic">Latest Intelligence</h2>
+            </div>
             <div className="flex gap-4">
-              <button className="p-2 border border-white/[0.05] rounded-full hover:bg-white/5 transition-colors"><Globe size={14} /></button>
-              <button className="p-2 border border-white/[0.05] rounded-full hover:bg-white/5 transition-colors"><BarChart3 size={14} /></button>
+              <div className="w-14 h-14 rounded-full border border-white/[0.08] flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors">
+                <Shield size={18} className="text-white/40" />
+              </div>
+              <div className="w-14 h-14 rounded-full border border-white/[0.08] flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors">
+                <Target size={18} className="text-white/40" />
+              </div>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-20 gap-y-32">
             {stories.map((s, i) => (
               <div key={i} className="group cursor-pointer">
-                <div className="aspect-[3/2] bg-[#0A0A0A] border border-white/[0.03] rounded-[2px] mb-8 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent" />
-                  <div className="w-full h-full group-hover:scale-105 transition-transform duration-1000 bg-white/[0.01]" />
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Bookmark size={14} className="text-white/40" />
+                <div className="aspect-[4/5] bg-[#0A0A0A] border border-white/[0.04] mb-10 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#020202]/40" />
+                  <div className="w-full h-full group-hover:scale-110 transition-transform duration-[2s] bg-white/[0.02]" />
+                  <div className="absolute top-8 left-8">
+                    <span className="text-[9px] font-black tracking-[0.2em] text-white/40 uppercase bg-black/40 backdrop-blur-md px-3 py-1 border border-white/5">
+                      {s.category}
+                    </span>
                   </div>
                 </div>
-                <div className="space-y-4">
-                  <p className="text-[9px] font-black tracking-[0.2em] text-blue-500 uppercase">{s.category}</p>
-                  <h4 className="text-2xl font-medium tracking-tighter leading-tight group-hover:underline decoration-white/20 underline-offset-8 transition-all">
+                <div className="space-y-6">
+                  <h4 className="text-3xl font-serif font-medium tracking-tight leading-[1.1] group-hover:italic transition-all">
                     {s.title}
                   </h4>
-                  <p className="text-sm text-white/40 font-light leading-relaxed line-clamp-2">
+                  <p className="text-base text-white/30 font-light leading-relaxed line-clamp-3">
                     {s.excerpt}
                   </p>
-                  <div className="pt-4 flex items-center justify-between border-t border-white/[0.03]">
-                    <span className="text-[10px] text-white/20 font-bold uppercase tracking-widest">{s.time}</span>
-                    <span className="text-[10px] text-white/20 font-bold uppercase tracking-widest">{s.readingTime}</span>
+                  <div className="pt-6 flex items-center justify-between border-t border-white/[0.04]">
+                    <div className="flex items-center gap-4">
+                      <span className="text-[10px] text-white/20 font-bold uppercase tracking-widest">{s.time}</span>
+                      <span className="w-1 h-1 rounded-full bg-white/10" />
+                      <span className="text-[10px] text-white/20 font-bold uppercase tracking-widest">{s.readingTime}</span>
+                    </div>
+                    <ArrowUpRight size={16} className="text-white/20 group-hover:text-blue-500 transition-colors" />
                   </div>
                 </div>
               </div>
@@ -126,34 +189,58 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t border-white/[0.03] mt-32 py-20 px-8">
-        <div className="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-16">
-          <div className="col-span-1 md:col-span-2">
-            <span className="text-2xl font-bold tracking-[0.4em] uppercase mb-8 block">CHRONICLE</span>
-            <p className="text-sm text-white/30 max-w-sm font-light leading-relaxed">
-              The premier intelligence layer for the frontier economy. Synthesizing geopolitical shifts and technological breakthroughs for the global elite.
-            </p>
+      {/* LUXURY FOOTER */}
+      <footer className="border-t border-white/[0.04] bg-[#050505] pt-32 pb-12 px-6 lg:px-12">
+        <div className="max-w-[1800px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 mb-32">
+            <div className="lg:col-span-6">
+              <span className="font-serif text-5xl font-bold tracking-tight italic mb-12 block">Chronicle</span>
+              <p className="text-xl text-white/30 max-w-md font-light leading-relaxed text-balance">
+                Defining the architecture of information for a decentralized future. High-fidelity intelligence for the world's most discerning readers.
+              </p>
+            </div>
+            <div className="lg:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-12">
+              <div className="space-y-8">
+                <h5 className="text-[10px] font-bold tracking-widest uppercase text-white/20">Operations</h5>
+                <ul className="text-[11px] font-bold tracking-widest text-white/40 space-y-4 uppercase">
+                  <li className="hover:text-white transition-colors cursor-pointer">Intelligence</li>
+                  <li className="hover:text-white transition-colors cursor-pointer">Terminal</li>
+                  <li className="hover:text-white transition-colors cursor-pointer">Archives</li>
+                </ul>
+              </div>
+              <div className="space-y-8">
+                <h5 className="text-[10px] font-bold tracking-widest uppercase text-white/20">Network</h5>
+                <ul className="text-[11px] font-bold tracking-widest text-white/40 space-y-4 uppercase">
+                  <li className="hover:text-white transition-colors cursor-pointer">Protocol</li>
+                  <li className="hover:text-white transition-colors cursor-pointer">Nodes</li>
+                  <li className="hover:text-white transition-colors cursor-pointer">Governance</li>
+                </ul>
+              </div>
+              <div className="space-y-8">
+                <h5 className="text-[10px] font-bold tracking-widest uppercase text-white/20">Legal</h5>
+                <ul className="text-[11px] font-bold tracking-widest text-white/40 space-y-4 uppercase">
+                  <li className="hover:text-white transition-colors cursor-pointer">Privacy</li>
+                  <li className="hover:text-white transition-colors cursor-pointer">Sovereignty</li>
+                  <li className="hover:text-white transition-colors cursor-pointer">Terms</li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div className="space-y-4">
-            <h5 className="text-[10px] font-bold tracking-widest uppercase text-white/20">Network</h5>
-            <ul className="text-sm text-white/40 space-y-2 font-light">
-              <li className="hover:text-white transition-colors cursor-pointer">Terminal</li>
-              <li className="hover:text-white transition-colors cursor-pointer">Reports</li>
-              <li className="hover:text-white transition-colors cursor-pointer">Advisory</li>
-            </ul>
+          
+          <div className="pt-12 border-t border-white/[0.04] flex flex-col md:row justify-between items-center gap-8">
+            <div className="flex items-center gap-12 text-[10px] font-bold tracking-[0.2em] text-white/10 uppercase">
+              <p>© 2026 Chronicle Systems Gmbh</p>
+              <p className="hidden md:block">Node ID: 0x8A22...FF31</p>
+              <p className="hidden md:block">Signal: Encrypted</p>
+            </div>
+            <div className="flex gap-6">
+              {['Twitter', 'Discord', 'Substack'].map(social => (
+                <span key={social} className="text-[10px] font-bold tracking-widest uppercase text-white/20 hover:text-white cursor-pointer transition-colors">
+                  {social}
+                </span>
+              ))}
+            </div>
           </div>
-          <div className="space-y-4">
-            <h5 className="text-[10px] font-bold tracking-widest uppercase text-white/20">Legal</h5>
-            <ul className="text-sm text-white/40 space-y-2 font-light">
-              <li className="hover:text-white transition-colors cursor-pointer">Privacy</li>
-              <li className="hover:text-white transition-colors cursor-pointer">SLA</li>
-              <li className="hover:text-white transition-colors cursor-pointer">Identity</li>
-            </ul>
-          </div>
-        </div>
-        <div className="max-w-[1600px] mx-auto mt-20 pt-8 border-t border-white/[0.03] flex justify-between items-center text-[10px] font-bold tracking-widest text-white/10 uppercase">
-          <p>© 2026 Chronicle Systems Gmbh.</p>
-          <p>Verified Node: 0x8A22...FF31</p>
         </div>
       </footer>
     </div>
